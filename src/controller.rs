@@ -8,7 +8,7 @@ pub async fn list_users() -> (StatusCode, Json<Value>) {
 
 }
 
-pub async fn get_user_by_id(Path: Path<u64>) -> (StatusCode, Json<Value>){
+pub async fn get_user_by_id(Path: Path<u64>) -> (StatusCode, Json<Value>) {
 
 }
 
@@ -21,5 +21,5 @@ pub async fn update_user(Path: Path<u64>, Json: Json<Value>) -> (StatusCode, Jso
 }
 
 pub async fn delete_user(Path: Path<u64>) -> StatusCode {
-    
+
 }
