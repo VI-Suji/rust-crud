@@ -26,7 +26,7 @@ impl UserService {
     pub async fn get_users_by_id(&self, id: i32) -> Result<User, Error> {
         let user = sqlx::query_as::<_, User>("SELECT * FROM users WHERE id = $1")
             .bind(id)
-            .fetch_one(&slef.pool)
+            .fetch_one(&self.pool)
             .await?;
 
         Ok(user)
@@ -45,7 +45,7 @@ impl UserService {
     }
 
     pub async fn update_user(&self, user: UserInfo) -> Result<(), Error> {
-        sqlx::query("UPDATE users SET name = $1, occupation = $2, email = $3, phone = $4)")
+        sqlx::query("UPDATE users SET name = $1, occupation = $2, email = $3, phone = $4")
             .bind(user.name)
             .bind(user.occupation)
             .bind(user.email)
